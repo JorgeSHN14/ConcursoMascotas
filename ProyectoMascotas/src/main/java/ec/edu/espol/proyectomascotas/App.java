@@ -1,4 +1,4 @@
-package ec.edu.espol.concursomascotas;
+package ec.edu.espol.proyectomascotas;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +17,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        scene = new Scene(loadFXML("menu"), 600, 480);
         stage.setScene(scene);
         stage.show();
     }

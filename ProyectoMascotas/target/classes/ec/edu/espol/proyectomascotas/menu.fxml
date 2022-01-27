@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+
+<HBox alignment="CENTER" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectomascotas.MenuController">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="529.0" prefWidth="600.0">
+         <children>
+            <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="600.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="Dueño">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#menuDueño" text="Agregar" />
+                  </items>
+                </Menu>
+                  <Menu mnemonicParsing="false" text="Mascota">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#menuMascota" text="Agregar" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Concurso">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#menuConcurso" text="Agregar" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Premio">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#menuPremio" text="Agregar" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Criterio">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#menuCriterio" text="Agregar" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Inscripción">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#menuInscripcion" text="Agregar" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="MiembroJurado">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#menuJurado" text="Agregar" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Evaluación">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#menuEvaluacion" text="Agregar" />
+                     </items>
+                  </Menu>
+              </menus>
+            </MenuBar>
+            <Label layoutX="143.0" layoutY="144.0" prefHeight="241.0" prefWidth="315.0" text="Bienvenidos al Sistema de Concursos de Animales" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</HBox>
