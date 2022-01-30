@@ -1,68 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<HBox alignment="CENTER" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectomascotas.MenuController">
+<GridPane prefHeight="500.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.controller.MenuController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="141.0" minHeight="10.0" prefHeight="114.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="369.0" minHeight="10.0" prefHeight="271.0" vgrow="SOMETIMES" />
+   </rowConstraints>
    <children>
-      <AnchorPane id="AnchorPane" prefHeight="529.0" prefWidth="600.0">
+      <HBox alignment="CENTER" prefHeight="355.0" prefWidth="620.0" spacing="20.0" GridPane.rowIndex="1">
          <children>
-            <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="600.0">
-              <menus>
-                <Menu mnemonicParsing="false" text="Dueño">
-                  <items>
-                    <MenuItem mnemonicParsing="false" onAction="#menuDueño" text="Agregar" />
-                  </items>
-                </Menu>
-                  <Menu mnemonicParsing="false" text="Mascota">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#menuMascota" text="Agregar" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Concurso">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#menuConcurso" text="Agregar" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Premio">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#menuPremio" text="Agregar" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Criterio">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#menuCriterio" text="Agregar" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Inscripción">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#menuInscripcion" text="Agregar" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="MiembroJurado">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#menuJurado" text="Agregar" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Evaluación">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#menuEvaluacion" text="Agregar" />
-                     </items>
-                  </Menu>
-              </menus>
-            </MenuBar>
-            <Label layoutX="143.0" layoutY="144.0" prefHeight="241.0" prefWidth="315.0" text="Bienvenidos al Sistema de Concursos de Animales" textAlignment="CENTER" wrapText="true">
+            <VBox alignment="CENTER" prefHeight="359.0" prefWidth="309.0" spacing="30.0">
+               <children>
+                  <Label text="¡Inscríbete!">
+                     <font>
+                        <Font name="Times New Roman" size="18.0" />
+                     </font>
+                  </Label>
+                  <Button mnemonicParsing="false" onMouseClicked="#mostrarConcursos" prefHeight="44.0" prefWidth="279.0" style="-fx-background-color: black;" text="Concursos de Mascotas" textFill="WHITE" underline="true">
+                     <font>
+                        <Font name="Times New Roman Bold Italic" size="24.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Text stroke="#6613d3" strokeType="OUTSIDE" strokeWidth="0.0" text="Antes la inscripción a un concurso se debe hacer el registro de la mascota y su dueño." wrappingWidth="238.716796875">
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                  </Text>
+                  <HBox alignment="CENTER" prefHeight="35.0" prefWidth="311.0" spacing="50.0">
+                     <children>
+                        <Button mnemonicParsing="false" onMouseClicked="#inscribirDuenio" prefHeight="29.0" prefWidth="79.0" style="-fx-background-color: rgb(23,23,23);" text="Dueño" textFill="WHITE" underline="true">
+                           <font>
+                              <Font name="Times New Roman" size="14.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button mnemonicParsing="false" onMouseClicked="#inscribirMascota" prefHeight="29.0" prefWidth="79.0" style="-fx-background-color: rgb(23,23,23);" text="Mascota" textFill="WHITE" underline="true">
+                           <font>
+                              <Font name="Times New Roman" size="14.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <ImageView fitHeight="231.0" fitWidth="269.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../img/concurso_mascotas.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="76.0" prefWidth="316.0" spacing="20.0">
+         <padding>
+            <Insets right="20.0" />
+         </padding>
+         <children>
+            <Label prefHeight="54.0" prefWidth="282.0" text="BIENVENIDO" textFill="#6f00ff">
                <font>
-                  <Font name="System Bold" size="24.0" />
+                  <Font name="Algerian" size="48.0" />
                </font>
             </Label>
+            <HBox alignment="CENTER" prefHeight="141.0" prefWidth="302.0" spacing="10.0">
+               <children>
+                  <Label text="¿Eres administrador?">
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                  </Label>
+                  <Button mnemonicParsing="false" onMouseClicked="#adminConcursos" prefHeight="29.0" prefWidth="174.0" style="-fx-background-color: rgb(23,23,23);" text="Administrar Concursos" textFill="WHITE" underline="true">
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </HBox>
          </children>
-      </AnchorPane>
+      </HBox>
    </children>
-</HBox>
+</GridPane>

@@ -5,6 +5,7 @@
  */
 package ec.edu.espol.model;
 
+import ec.edu.espol.controller.DuenioController;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -15,8 +16,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
-import java.util.Scanner;
 import javafx.scene.control.Alert;
+import javafx.scene.control.TextField;
 
 /**
  *
@@ -64,6 +65,7 @@ public class Duenio extends Persona{
     public void saveFile(String nomFile){
         try(BufferedWriter bw= new BufferedWriter(new FileWriter(nomFile,true))){
             bw.write(this.toString());
+            bw.newLine();
         } catch (IOException ioe) {
             Alert al = new Alert(Alert.AlertType.ERROR,"Ha ocurrido un error con el archivo. "+ ioe.getMessage());
         }
@@ -94,21 +96,25 @@ public class Duenio extends Persona{
         }
         return null;
     }
+    
+    public static ArrayList<String> emailDuenios(String nomFile){
+        ArrayList<Duenio> duenios = readFile(nomFile);
+        ArrayList<String> emailDuenios = new ArrayList<>();
+        for(Duenio d:duenios){
+            emailDuenios.add(d.email);
+        }
+        return emailDuenios;
+    }
  
-    public static Duenio nextDuenio(Scanner sc ){
-        System.out.println("Ingrese los nombres del Dueño:");
-        String nombres = sc.next();
-        System.out.println(nombres);
-        System.out.println("Ingrese los apellidos del Dueño:");
-        String apellidos= sc.next();
-        System.out.println(apellidos);
-        System.out.println("Ingrese el telefono del Dueño:");
-        String telefono=sc.next();
-        System.out.println("Ingrese en e-mail del Dueño:");
-        String email=sc.next();
-        System.out.println("Ingrese la direccion del Dueño:");
-        String direccion=sc.next();
-        Duenio d = new Duenio(nombres,apellidos,telefono,email,direccion);  
+    public static Duenio nextDuenio(TextField tfNombres, TextField tfApellidos, TextField tfCelular, TextField tfEmail, TextField tfDireccion){
+        Duenio d = null;
+        String nombres = tfNombres.getText();
+        String apellidos = tfApellidos.getText();
+        String telefono = tfCelular.getText();
+        String email = tfEmail.getText();
+        String direccion = tfDireccion.getText();
+        
+        d = new Duenio(nombres,apellidos,telefono,email,direccion);  
         return d;
     }
     

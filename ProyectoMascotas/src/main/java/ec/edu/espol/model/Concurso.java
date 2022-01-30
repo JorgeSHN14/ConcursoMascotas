@@ -165,6 +165,7 @@ public class Concurso {
     public void saveFile(String nomFile){
         try(BufferedWriter bw= new BufferedWriter(new FileWriter(nomFile,true))){
             bw.write(this.toString());
+            bw.newLine();
         } catch (IOException ioe) {
             Alert al = new Alert(AlertType.ERROR,"Ha ocurrido un error con el archivo. "+ ioe.getMessage());
         }

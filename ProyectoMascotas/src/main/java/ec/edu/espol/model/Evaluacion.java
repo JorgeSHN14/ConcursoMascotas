@@ -75,11 +75,18 @@ public class Evaluacion {
     public void setIdCriterio(int idCriterio) {
         this.idCriterio = idCriterio;
     }
+    
+    @Override
+    
+    public String toString() {
+        return id +"|"+ idInscripcion + "|" + idMiembroJurado + "|" + nota + "|" + idCriterio;
+    }
 
     public void saveFile(String nomfile){
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(nomfile,true)))
         {
-            bw.write(id+"|"+idInscripcion+"|"+idMiembroJurado+"|"+nota+"|"+idCriterio);       
+            bw.write(this.toString());
+            bw.newLine();
         }
         catch(Exception e){
             System.out.println(e.getMessage());
@@ -133,13 +140,6 @@ public class Evaluacion {
         Evaluacion evalu = new Evaluacion(id,insc,idmj,nota,crit);
         return evalu;  
            
-    }
-    
-    @Override
-    
-    public String toString() {
-        //int id, int idinscripcion, int idMiembroJurado, int idCriterio, double nota
-        return String.valueOf(this.id)+"-"+this.idInscripcion+"-"+this.idMiembroJurado+"-"+this.idCriterio+"-"+this.nota;
     }
 }
 

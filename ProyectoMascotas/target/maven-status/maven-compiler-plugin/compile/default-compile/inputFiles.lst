@@ -1,20 +1,20 @@
-C:\Users\usuario\Documents\NetBeansProjects\ProyectoMascotas\src\main\java\ec\edu\espol\proyectomascotas\PremioController.java
-C:\Users\usuario\Documents\NetBeansProjects\ProyectoMascotas\src\main\java\ec\edu\espol\proyectomascotas\ConcursoController.java
-C:\Users\usuario\Documents\NetBeansProjects\ProyectoMascotas\src\main\java\ec\edu\espol\proyectomascotas\JuradoController.java
-C:\Users\usuario\Documents\NetBeansProjects\ProyectoMascotas\src\main\java\ec\edu\espol\proyectomascotas\App.java
-C:\Users\usuario\Documents\NetBeansProjects\ProyectoMascotas\src\main\java\ec\edu\espol\proyectomascotas\DueñoController.java
-C:\Users\usuario\Documents\NetBeansProjects\ProyectoMascotas\src\main\java\ec\edu\espol\proyectomascotas\MascotaController.java
-C:\Users\usuario\Documents\NetBeansProjects\ProyectoMascotas\src\main\java\ec\edu\espol\model\Evaluacion.java
-C:\Users\usuario\Documents\NetBeansProjects\ProyectoMascotas\src\main\java\ec\edu\espol\proyectomascotas\InscripcionController.java
-C:\Users\usuario\Documents\NetBeansProjects\ProyectoMascotas\src\main\java\ec\edu\espol\model\Premio.java
-C:\Users\usuario\Documents\NetBeansProjects\ProyectoMascotas\src\main\java\ec\edu\espol\model\MiembroJurado.java
-C:\Users\usuario\Documents\NetBeansProjects\ProyectoMascotas\src\main\java\ec\edu\espol\proyectomascotas\MenuController.java
-C:\Users\usuario\Documents\NetBeansProjects\ProyectoMascotas\src\main\java\ec\edu\espol\model\Inscripcion.java
-C:\Users\usuario\Documents\NetBeansProjects\ProyectoMascotas\src\main\java\ec\edu\espol\model\Mascota.java
-C:\Users\usuario\Documents\NetBeansProjects\ProyectoMascotas\src\main\java\module-info.java
-C:\Users\usuario\Documents\NetBeansProjects\ProyectoMascotas\src\main\java\ec\edu\espol\model\Criterio.java
-C:\Users\usuario\Documents\NetBeansProjects\ProyectoMascotas\src\main\java\ec\edu\espol\proyectomascotas\EvaluacionController.java
-C:\Users\usuario\Documents\NetBeansProjects\ProyectoMascotas\src\main\java\ec\edu\espol\model\Concurso.java
-C:\Users\usuario\Documents\NetBeansProjects\ProyectoMascotas\src\main\java\ec\edu\espol\model\Duenio.java
-C:\Users\usuario\Documents\NetBeansProjects\ProyectoMascotas\src\main\java\ec\edu\espol\proyectomascotas\CriterioController.java
-C:\Users\usuario\Documents\NetBeansProjects\ProyectoMascotas\src\main\java\ec\edu\espol\model\Persona.java
+E:\Código\Java Projects\Aprendizaje_Java\ProyectoMascotas\src\main\java\ec\edu\espol\controller\PremioController.java
+E:\Código\Java Projects\Aprendizaje_Java\ProyectoMascotas\src\main\java\ec\edu\espol\model\Mascota.java
+E:\Código\Java Projects\Aprendizaje_Java\ProyectoMascotas\src\main\java\ec\edu\espol\controller\EvaluacionController.java
+E:\Código\Java Projects\Aprendizaje_Java\ProyectoMascotas\src\main\java\ec\edu\espol\model\Concurso.java
+E:\Código\Java Projects\Aprendizaje_Java\ProyectoMascotas\src\main\java\ec\edu\espol\controller\DuenioController.java
+E:\Código\Java Projects\Aprendizaje_Java\ProyectoMascotas\src\main\java\ec\edu\espol\model\Inscripcion.java
+E:\Código\Java Projects\Aprendizaje_Java\ProyectoMascotas\src\main\java\ec\edu\espol\controller\InscripcionController.java
+E:\Código\Java Projects\Aprendizaje_Java\ProyectoMascotas\src\main\java\ec\edu\espol\model\Evaluacion.java
+E:\Código\Java Projects\Aprendizaje_Java\ProyectoMascotas\src\main\java\ec\edu\espol\model\Duenio.java
+E:\Código\Java Projects\Aprendizaje_Java\ProyectoMascotas\src\main\java\ec\edu\espol\controller\CriterioController.java
+E:\Código\Java Projects\Aprendizaje_Java\ProyectoMascotas\src\main\java\ec\edu\espol\controller\JuradoController.java
+E:\Código\Java Projects\Aprendizaje_Java\ProyectoMascotas\src\main\java\ec\edu\espol\model\Persona.java
+E:\Código\Java Projects\Aprendizaje_Java\ProyectoMascotas\src\main\java\ec\edu\espol\model\MiembroJurado.java
+E:\Código\Java Projects\Aprendizaje_Java\ProyectoMascotas\src\main\java\ec\edu\espol\controller\MenuController.java
+E:\Código\Java Projects\Aprendizaje_Java\ProyectoMascotas\src\main\java\ec\edu\espol\proyectomascotas\App.java
+E:\Código\Java Projects\Aprendizaje_Java\ProyectoMascotas\src\main\java\module-info.java
+E:\Código\Java Projects\Aprendizaje_Java\ProyectoMascotas\src\main\java\ec\edu\espol\controller\ConcursoController.java
+E:\Código\Java Projects\Aprendizaje_Java\ProyectoMascotas\src\main\java\ec\edu\espol\controller\MascotaController.java
+E:\Código\Java Projects\Aprendizaje_Java\ProyectoMascotas\src\main\java\ec\edu\espol\model\Criterio.java
+E:\Código\Java Projects\Aprendizaje_Java\ProyectoMascotas\src\main\java\ec\edu\espol\model\Premio.java

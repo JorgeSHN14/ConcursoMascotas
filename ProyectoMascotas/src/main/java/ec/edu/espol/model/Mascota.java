@@ -12,10 +12,12 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 import javafx.scene.control.Alert;
+import javafx.scene.control.TextField;
 
 /**
  *
@@ -130,9 +132,45 @@ public class Mascota{
     public void saveFile(String nomFile){
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(nomFile,true))){
             bw.write(this.toString());
+            bw.newLine();
         } catch (IOException ioe) {
             Alert al = new Alert(Alert.AlertType.ERROR,"Ha ocurrido un error con el archivo. "+ ioe.getMessage());
         }
+    }
+    
+    public static Date strToDate(String[] fechaStr){
+        int year = Integer.parseInt(fechaStr[5]);
+        int day = Integer.parseInt(fechaStr[2]);
+        int month;
+        switch (fechaStr[1]){
+            case "Jan":
+                month = 0;break;
+            case "Feb":
+                month = 1;break;
+            case "Mar":
+                month = 2;break;
+            case "Apr":
+                month = 3;break;
+            case "May":
+                month = 4;break;
+            case "Jun":
+                month = 5;break;
+            case "Jul":
+                month = 6;break;
+            case "Aug":
+                month = 7;break;
+            case "Sep":
+                month = 8; break;
+            case "Oct":
+                month = 9;break;
+            case "Nov":
+                month = 10;break;
+            default:
+                //December va como default para que al crear la fecha no genere el error de que el mes puede llegar a no definirse
+                month = 11;break;
+                }
+            Date fecha = new Date(year-1900,month,day);
+            return fecha;      
     }
     
     public static ArrayList<Mascota> readFile(String nomFile){
@@ -142,37 +180,7 @@ public class Mascota{
             while((linea = br.readLine()) != null){
                 String[] tokens= linea.split("\\|");
                 String[] fechaNacStr = tokens[5].split(" ");
-                int year = Integer.parseInt(fechaNacStr[5]);
-                int day = Integer.parseInt(fechaNacStr[2]);
-                int month;
-                switch (fechaNacStr[1]){
-                    case "Jan":
-                        month = 0;break;
-                    case "Feb":
-                        month = 1;break;
-                    case "Mar":
-                        month = 2;break;
-                    case "Apr":
-                        month = 3;break;
-                    case "May":
-                        month = 4;break;
-                    case "Jun":
-                        month = 5;break;
-                    case "Jul":
-                        month = 6;break;
-                    case "Aug":
-                        month = 7;break;
-                    case "Sep":
-                        month = 8; break;
-                    case "Oct":
-                        month = 9;break;
-                    case "Nov":
-                        month = 10;break;
-                     default:
-                        //December va como default para que al crear la fecha no genere el error de que el mes puede llegar a no definirse
-                        month = 11;break;
-                }
-                Date fechaNac = new Date(year-1900,month,day);
+                Date fechaNac = strToDate(fechaNacStr);
                 Mascota m = new Mascota(Integer.parseInt(tokens[0]),Integer.parseInt(tokens[1]),tokens[2],tokens[3],tokens[4],fechaNac);
                 listaMascotas.add(m);
             }
@@ -185,39 +193,22 @@ public class Mascota{
         return listaMascotas;
     }
     
-    public static Mascota buscarMascota(ArrayList<Mascota> mascotas, String nombreMascota){
+    public static Mascota buscarMascota(ArrayList<Mascota> mascotas, String nomMascota){
         for(Mascota m:mascotas){
-            if(m.getNombre().equals(nombreMascota))
+            if(m.getNombre().equals(nomMascota))
                 return m;
         }
         return null;
     }
     
-    public static Mascota nextMascota(Scanner sc){
+    public static Mascota nextMascota(int idDuenio, TextField tfNombre, TextField tfTipo, TextField tfRaza, Date fechaNac){
         Mascota m = null;
-        ArrayList<Duenio> duenios = Duenio.readFile("dueños.txt");
-        if (duenios.isEmpty())
-                return m;
-        System.out.println("Ingrese el nombre de la mascota:");
-        String nombre = sc.next();
-        System.out.println("Ingrese el tipo de mascota(gato, perro, etc):");
-        String tipo = sc.next();
-        System.out.println("Ingrese la raza de la mascota:");
-        String raza = sc.next();
-        System.out.println("Ingrese la fecha de nacimiento de la mascota en formato dd/mm/aa:");
-        String[] fechaNacStr = sc.next().split("/");
-        Date fechaNac = new Date(Integer.parseInt(fechaNacStr[2])-1900, Integer.parseInt(fechaNacStr[1])-1, Integer.parseInt(fechaNacStr[0]));
+        String nombre = tfNombre.getText();
+        String tipo = tfTipo.getText();
+        String raza = tfRaza.getText();
         Duenio duenioMascota;
         String emailDuenio;
-        System.out.println("Ingrese el e-mail del dueño de la mascota.");
-        do{
-            System.out.println("Ingrese el e-mail de un dueño inscrito:");
-            emailDuenio=sc.next();
-            duenioMascota = Duenio.buscarDuenio(duenios, emailDuenio);
-            if(duenioMascota != null){
-                m = new Mascota(duenioMascota.getId(),nombre,tipo,raza,fechaNac);
-            }
-        } while(duenioMascota == null);
+        m = new Mascota(idDuenio ,nombre,tipo,raza,fechaNac);
         
         return m;
     }

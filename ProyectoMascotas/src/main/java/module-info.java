@@ -8,4 +8,6 @@ module ec.edu.espol.proyectomascotas {
     
     opens ec.edu.espol.model to javafx.fxml;
     exports ec.edu.espol.model;
+    opens ec.edu.espol.controller to javafx.fxml;
+    exports ec.edu.espol.controller;
 }

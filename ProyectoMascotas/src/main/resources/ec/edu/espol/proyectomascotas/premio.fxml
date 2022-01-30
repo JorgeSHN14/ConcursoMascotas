@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<HBox alignment="CENTER" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.proyectomascotas.PremioController">
+<HBox alignment="CENTER" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.controller.PremioController">
    <children>
       <AnchorPane id="AnchorPane" prefHeight="529.0" prefWidth="600.0">
          <children>
