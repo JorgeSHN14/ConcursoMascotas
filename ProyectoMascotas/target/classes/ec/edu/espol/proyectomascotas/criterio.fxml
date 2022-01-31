@@ -1,107 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<HBox alignment="CENTER" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.controller.CriterioController">
+<GridPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.controller.CriterioController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+   </rowConstraints>
    <children>
-      <AnchorPane id="AnchorPane" prefHeight="529.0" prefWidth="600.0">
+      <VBox alignment="CENTER" prefHeight="550.0" prefWidth="650.0" spacing="20.0">
          <children>
-            <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="600.0">
-               <menus>
-                  <Menu mnemonicParsing="false" text="Dueño">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#menuDueño" text="Agregar" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Mascota">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#menuMascota" text="Agregar" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Concurso">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#menuConcurso" text="Agregar" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Premio">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#menuPremio" text="Agregar" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Criterio">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#menuCriterio" text="Agregar" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Inscripción">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#menuInscripcion" text="Agregar" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="MiembroJurado">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#menuJurado" text="Agregar" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Evaluación">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#menuEvaluacion" text="Agregar" />
-                     </items>
-                  </Menu>
-               </menus>
-            </MenuBar>
-            <VBox alignment="CENTER" layoutX="7.0" layoutY="77.0" prefHeight="397.0" prefWidth="588.0">
+            <Label text="Registrar Criterio" textFill="#6f00ff">
+               <font>
+                  <Font name="Algerian" size="48.0" />
+               </font>
+            </Label>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Para poder registrar un criterios se debe registrar primero un concurso." wrappingWidth="381.91015625" />
+            <VBox alignment="CENTER" prefHeight="75.0" prefWidth="650.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="35.0" prefWidth="206.0" text="Agregar Criterio">
+                  <Label text="Número de criterios:">
                      <font>
-                        <Font name="System Bold" size="24.0" />
+                        <Font name="Times New Roman" size="14.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="35.0" prefWidth="206.0">
+                  <TextField fx:id="tfNumCriterios">
+                     <VBox.margin>
+                        <Insets left="200.0" right="200.0" />
+                     </VBox.margin>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets bottom="-20.0" />
+               </padding>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="18.0" prefWidth="650.0">
+               <children>
+                  <Label text="Concurso:">
                      <font>
-                        <Font name="System Bold" size="24.0" />
+                        <Font name="Times New Roman" size="14.0" />
                      </font>
                   </Label>
-                  <HBox alignment="CENTER">
-                     <children>
-                        <Label prefHeight="20.0" prefWidth="92.0" text="Descripción:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txtdescripcion" prefHeight="85.0" prefWidth="191.0" />
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER">
-                     <children>
-                        <Label prefHeight="20.0" prefWidth="89.0" text="Concurso:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <ComboBox fx:id="concursos" prefHeight="25.0" prefWidth="185.0" />
-                     </children>
-                  </HBox>
-                  <Label alignment="CENTER" prefHeight="35.0" prefWidth="206.0">
-                     <font>
-                        <Font name="System Bold" size="24.0" />
-                     </font>
-                  </Label>
-                  <Button mnemonicParsing="false" onAction="#guardar" text="Guardar" />
+                  <ComboBox fx:id="cbConcursos" editable="true" prefHeight="25.0" prefWidth="190.0" />
                </children>
             </VBox>
+            <Button fx:id="btEmpezar" mnemonicParsing="false" onMouseClicked="#empezarRegistros" prefHeight="29.0" prefWidth="79.0" style="-fx-background-color: rgb(23,23,23);" text="Empezar" textFill="WHITE" underline="true">
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <VBox alignment="CENTER" prefHeight="85.0" prefWidth="650.0">
+               <children>
+                  <Label text="Descipcion:">
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="118.0" prefWidth="650.0">
+                     <children>
+                        <ScrollPane hbarPolicy="NEVER" prefHeight="65.0" prefWidth="290.0">
+                           <content>
+                              <FlowPane prefHeight="62.0" prefWidth="288.0">
+                                 <children>
+                                    <TextField fx:id="tfDescripcion" alignment="CENTER" disable="true" prefHeight="86.0" prefWidth="288.0">
+                                       <FlowPane.margin>
+                                          <Insets />
+                                       </FlowPane.margin>
+                                    </TextField>
+                                 </children>
+                              </FlowPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="-20.0" />
+               </padding>
+            </VBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+               <children>
+                  <Button mnemonicParsing="false" onMouseClicked="#retroceder" prefHeight="29.0" prefWidth="79.0" style="-fx-background-color: rgb(23,23,23);" text="Menú" textFill="WHITE" underline="true">
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btRegistrar" disable="true" mnemonicParsing="false" onMouseClicked="#guardarCriterios" prefHeight="29.0" prefWidth="79.0" style="-fx-background-color: rgb(23,23,23);" text="Registrar" textFill="WHITE" underline="true">
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </HBox>
          </children>
-      </AnchorPane>
+      </VBox>
    </children>
-</HBox>
+</GridPane>

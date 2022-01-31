@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import javafx.scene.control.Alert;
+import javafx.scene.control.TextField;
 
 /**
  *
@@ -121,34 +122,19 @@ public class Criterio {
         return listaCriterios;
     }
     
-    public static ArrayList<Criterio> nextCriterios(Scanner sc,  int numCriterios){
-        ArrayList<Concurso> concursos = Concurso.readFile("concursos.txt");
-        if(concursos.isEmpty())
-            return null;
-        ArrayList<Criterio> criterios = new ArrayList<>();
-        String[] descripciones = new String[numCriterios];
-        Concurso concursoPremio;
-        String nombreConcurso;
-        System.out.println("Ingrese los datos cada criterio.");
-        for(int i = 0 ; i<numCriterios; i++){
-            System.out.println("Criterio " + (i+1) +" de " + numCriterios);
-            System.out.println("Ingrese la descripción del criterio:");
-            descripciones[i] = sc.next();
+    public static ArrayList<Integer> idCriterios(String nomFile){
+        ArrayList<Criterio> criterios = readFile(nomFile);
+        ArrayList<Integer> idCriterios = new ArrayList<>();
+        for(Criterio c:criterios){
+            idCriterios.add(c.id);
         }
-        System.out.println("Ingrese el nombre del concurso al que pertenece el grupo de citerios.");
-        do{
-            System.out.println("Ingrese el nombre de un concurso resgistrado:");
-            nombreConcurso = sc.next();
-            concursoPremio = Concurso.buscarConcurso(concursos, nombreConcurso);
-            if(concursoPremio != null){
-                Criterio c;
-                for(int i = 0 ; i<numCriterios; i++){
-                    c = new Criterio(descripciones[i],concursoPremio.getId());
-                    criterios.add(c);
-                }
-            }
-        } while(concursoPremio == null);
-        return criterios;
+        return idCriterios;
+    }
+    
+    public static Criterio nextCriterio(TextField descripcion,int idConcurso){
+        Criterio c = new Criterio(descripcion.getText(),idConcurso);
+        
+        return c;
     }
     
 }

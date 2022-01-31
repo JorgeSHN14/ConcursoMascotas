@@ -5,13 +5,17 @@
  */
 package ec.edu.espol.model;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import javafx.scene.control.Alert;
+import javafx.scene.control.TextField;
 
 /**
  *
@@ -63,20 +67,32 @@ public class MiembroJurado extends Persona{
         }
     }
     
-    public static MiembroJurado nextMiembroJurado(Scanner sc){
-        MiembroJurado miembroJurado;
-        System.out.println("Ingrese los nombres del miembro del jurado:");
-        String nombres = sc.next();
-        System.out.println("Ingrese los apellidos del miembro del jurado:");
-        String apellidos = sc.next();
-        System.out.println("Ingrese el telefono del miembro del jurado:");
-        String telefono = sc.next();
-        System.out.println("Ingrese los email del miembro del jurado:");
-        String email = sc.next();
-        System.out.println("Ingrese el perfil del miembro del jurado:");
-        String perfil = sc.next();
-        miembroJurado = new MiembroJurado(nombres, apellidos, telefono, email, perfil);
+    public static ArrayList<MiembroJurado> readFile(String nomFile){
+        ArrayList<MiembroJurado> listaMiembroJurados = new ArrayList<>();
+        try(BufferedReader br = new BufferedReader(new FileReader(nomFile))){
+            String linea;
+            while((linea = br.readLine()) != null){
+                String[] tokens= linea.split("\\|");
+                MiembroJurado mj = new MiembroJurado(Integer.parseInt(tokens[0]),tokens[1],tokens[2],tokens[3],tokens[4],tokens[5]);
+                listaMiembroJurados.add(mj);
+            }
+        } catch (FileNotFoundException fnfe) {
+            Alert al = new Alert(Alert.AlertType.ERROR,"No se ha encontrado el archivo. "+ fnfe.getMessage());
+        } catch (IOException ioe) {
+            Alert al = new Alert(Alert.AlertType.ERROR,"Ha ocurrido un error con el archivo. "+ ioe.getMessage());
+        }
+        return listaMiembroJurados;
+    }
+    public static MiembroJurado nextMiembroJurado(TextField tfNombres, TextField tfApellidos, TextField tfCelular, TextField tfEmail, TextField tfPerfil){
+        MiembroJurado miembroJurado = new MiembroJurado(tfNombres.getText(),tfApellidos.getText(),tfCelular.getText(),tfEmail.getText(),tfPerfil.getText());
         return miembroJurado;
     }
     
+    public static MiembroJurado buscarMiembroJurado(ArrayList<MiembroJurado> miembroJurados, String emailMiembroJurado){
+        for(MiembroJurado mj:miembroJurados){
+            if(mj.getEmail().equals(emailMiembroJurado))
+                return mj;
+        }
+        return null;
+    }
 }

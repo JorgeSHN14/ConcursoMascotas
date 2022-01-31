@@ -16,6 +16,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 import javafx.scene.control.Alert;
+import javafx.scene.control.TextField;
 
 /**
  *
@@ -111,6 +112,14 @@ public class Premio {
         }
     }
     
+    public static Premio buscarPremio(ArrayList<Premio> premios, int lugar, int idConcurso){
+        for(Premio p: premios){
+            if(p.getLugar()== lugar && p.getIdConcurso()==idConcurso)
+                return p;
+        }
+        return null;
+    }
+    
     public static ArrayList<Premio> readFile(String nomFile){
         ArrayList<Premio> listaPremios = new ArrayList<>();
         try(BufferedReader br = new BufferedReader(new FileReader(nomFile))){
@@ -129,37 +138,10 @@ public class Premio {
         return listaPremios;
     }
     
-    public static ArrayList<Premio> nextPremios(Scanner sc,  int numPremios){
-        ArrayList<Concurso> concursos = Concurso.readFile("concursos.txt");
-        if(concursos.isEmpty())
-            return null;
-        ArrayList<Premio> premios = new ArrayList<>();
-        int[] lugares = new int[numPremios];
-        String[] descripciones = new String[numPremios];
-        Concurso concursoPremio;
-        String nombreConcurso;
-        System.out.println("Ingrese los datos cada premio.");
-        for(int i = 0 ; i<numPremios; i++){
-            System.out.println("Premio " + (i+1) +" de " + numPremios);
-            System.out.println("Ingrese de que lugar es el premio:");
-            lugares[i] = sc.nextInt();
-            System.out.println("Ingrese la descripción del premio:");
-            descripciones[i] = sc.next();
-        }
-        System.out.println("Ingrese el nombre del concurso al que pertenece el grupo de criterios.");
-        do{
-            System.out.println("Ingrese el nombre de un concurso resgistrado:");
-            nombreConcurso = sc.next();
-            concursoPremio = Concurso.buscarConcurso(concursos, nombreConcurso);
-            if(concursoPremio != null){
-                Premio p;
-                for(int i = 0 ; i<numPremios; i++){
-                    p = new Premio(lugares[i],descripciones[i],concursoPremio.getId());
-                    premios.add(p);
-                }
-            }
-        } while(concursoPremio == null);
-        return premios;
+    public static Premio nextPremio(int lugar, TextField descripcion,int idConcurso){
+        Premio p = new Premio(lugar,descripcion.getText(),idConcurso);
+        
+        return p;
     }
     
 }

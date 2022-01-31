@@ -18,6 +18,7 @@ import java.util.Date;
 import java.util.Scanner;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.TextField;
 
 /**
  *
@@ -234,23 +235,18 @@ public class Concurso {
         return null;
     }
     
-    public static Concurso nextConcurso(Scanner sc){
-        System.out.println("Ingrese el nombre del concurso:");
-        String nombre = sc.next();
-        System.out.println("Ingrese la fecha del concurso en formato dd/mm/aa:");
-        String[] fechaStr = sc.next().split("/");
-        Date fecha = new Date(Integer.parseInt(fechaStr[2])-1900, Integer.parseInt(fechaStr[1])-1, Integer.parseInt(fechaStr[0]));
-        System.out.println("Ingrese la fecha de inscripciones del concurso en formato dd/mm/aa:");
-        String[] fechaInsStr = sc.next().split("/");
-        Date fechaIns = new Date(Integer.parseInt(fechaInsStr[2])-1900, Integer.parseInt(fechaInsStr[1])-1, Integer.parseInt(fechaInsStr[0]));
-        System.out.println("Ingrese la fecha del cierre inscripciones del concurso en formato dd/mm/aa:");
-        String[] fechaCierreInsStr = sc.next().split("/");
-        Date fechaCierreIns = new Date(Integer.parseInt(fechaCierreInsStr[2])-1900, Integer.parseInt(fechaCierreInsStr[1])-1, Integer.parseInt(fechaCierreInsStr[0]));
-        System.out.println("Ingrese la temática del concurso:");
-        String tematica = sc.next();
-        System.out.println("Ingrese es costo del concurso en dólares:");
-        double costo = sc.nextDouble();
-        Concurso concurso = new Concurso(nombre,fecha,fechaIns,fechaCierreIns,tematica,costo);
+    public static ArrayList<String> nomConcursos(String nomFile){
+        ArrayList<Concurso> concursos = readFile(nomFile);
+        ArrayList<String> nombresConcursos = new ArrayList<String>();
+        for(Concurso c:concursos){
+            nombresConcursos.add(c.nombre);
+        }
+        return nombresConcursos;
+    }
+    
+    public static Concurso nextConcurso(TextField nombre,Date fecha,Date fechaIns, Date fechaCierreIns, TextField tematica, double costo){
+        
+        Concurso concurso = new Concurso(nombre.getText(),fecha,fechaIns,fechaCierreIns,tematica.getText(),costo);
         return concurso;
     }
 }

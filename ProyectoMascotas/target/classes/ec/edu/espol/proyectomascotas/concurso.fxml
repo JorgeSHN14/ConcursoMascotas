@@ -1,147 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<HBox alignment="CENTER" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.controller.ConcursoController">
+<GridPane prefHeight="550.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.controller.ConcursoController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+   </rowConstraints>
    <children>
-      <AnchorPane id="AnchorPane" prefHeight="529.0" prefWidth="600.0">
+      <VBox alignment="CENTER" prefHeight="466.0" prefWidth="600.0" spacing="10.0">
          <children>
-            <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="600.0">
-               <menus>
-                  <Menu mnemonicParsing="false" text="Dueño">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#menuDueño" text="Agregar" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Mascota">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#menuMascota" text="Agregar" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Concurso">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#menuConcurso" text="Agregar" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Premio">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#menuPremio" text="Agregar" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Criterio">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#menuCriterio" text="Agregar" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Inscripción">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#menuInscripcion" text="Agregar" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="MiembroJurado">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#menuJurado" text="Agregar" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Evaluación">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#menuEvaluacion" text="Agregar" />
-                     </items>
-                  </Menu>
-               </menus>
-            </MenuBar>
-            <VBox alignment="CENTER" layoutX="7.0" layoutY="77.0" prefHeight="397.0" prefWidth="588.0">
+            <Label text="Registrar Concurso" textFill="#6f00ff">
+               <font>
+                  <Font name="Algerian" size="48.0" />
+               </font>
+            </Label>
+            <Label text="Para poder registrar una mascota de debe registrar primero el dueño.">
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font>
+            </Label>
+            <VBox alignment="CENTER">
                <children>
-                  <Label alignment="CENTER" prefHeight="35.0" prefWidth="206.0" text="Agregar Concurso">
+                  <Label text="Nombre:">
                      <font>
-                        <Font name="System Bold" size="24.0" />
+                        <Font name="Times New Roman" size="14.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="35.0" prefWidth="206.0">
-                     <font>
-                        <Font name="System Bold" size="24.0" />
-                     </font>
-                  </Label>
-                  <HBox alignment="CENTER">
-                     <children>
-                        <Label prefHeight="17.0" prefWidth="67.0" text="Nombre:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txtnombre" prefHeight="25.0" prefWidth="191.0" />
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER">
-                     <children>
-                        <Label prefHeight="17.0" prefWidth="67.0" text="Fecha:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <DatePicker fx:id="fecha" />
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER">
-                     <children>
-                        <Label prefHeight="20.0" prefWidth="134.0" text="Inicio Inscripciones:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <DatePicker fx:id="inicioIns" />
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER">
-                     <children>
-                        <Label prefHeight="20.0" prefWidth="134.0" text="Cierre Inscripciones:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <DatePicker fx:id="cierreIns" />
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER">
-                     <children>
-                        <Label prefHeight="17.0" prefWidth="67.0" text="Temática:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txttematica" prefHeight="25.0" prefWidth="191.0" />
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER">
-                     <children>
-                        <Label prefHeight="17.0" prefWidth="67.0" text="Costo:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txtcosto" prefHeight="25.0" prefWidth="191.0" />
-                     </children>
-                  </HBox>
-                  <Label alignment="CENTER" prefHeight="35.0" prefWidth="206.0">
-                     <font>
-                        <Font name="System Bold" size="24.0" />
-                     </font>
-                  </Label>
-                  <Button mnemonicParsing="false" onAction="#guardar" text="Guardar" />
+                  <TextField fx:id="tfNombre" prefHeight="25.0" prefWidth="520.0">
+                     <VBox.margin>
+                        <Insets left="200.0" right="200.0" />
+                     </VBox.margin>
+                  </TextField>
                </children>
             </VBox>
+            <VBox alignment="CENTER">
+               <children>
+                  <Label text="Fecha:">
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                  </Label>
+                  <DatePicker fx:id="dpFechaConcurso" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER">
+               <children>
+                  <Label text="Inicio de inscripciones:">
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                  </Label>
+                  <DatePicker fx:id="dpFechaInicio" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER">
+               <children>
+                  <Label text="Cierre de inscripciones:">
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                  </Label>
+                  <DatePicker fx:id="dpFechaCierre" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER">
+               <children>
+                  <Label text="Temática:">
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="tfTematica" prefHeight="25.0" prefWidth="520.0">
+                     <VBox.margin>
+                        <Insets left="200.0" right="200.0" />
+                     </VBox.margin>
+                  </TextField>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER">
+               <children>
+                  <Label text="Costo:">
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="tfCosto" prefHeight="25.0" prefWidth="520.0">
+                     <VBox.margin>
+                        <Insets left="200.0" right="200.0" />
+                     </VBox.margin>
+                  </TextField>
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+               <children>
+                  <Button mnemonicParsing="false" onMouseClicked="#retroceder" prefHeight="29.0" prefWidth="79.0" style="-fx-background-color: rgb(23,23,23);" text="Menú" textFill="WHITE" underline="true">
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button mnemonicParsing="false" onMouseClicked="#guardarConcurso" prefHeight="29.0" prefWidth="79.0" style="-fx-background-color: rgb(23,23,23);" text="Registrar" textFill="WHITE" underline="true">
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </HBox>
          </children>
-      </AnchorPane>
+      </VBox>
    </children>
-</HBox>
+</GridPane>

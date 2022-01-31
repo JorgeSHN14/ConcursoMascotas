@@ -201,6 +201,15 @@ public class Mascota{
         return null;
     }
     
+    public static ArrayList<String> nomMascotas(String nomFile){
+        ArrayList<Mascota> mascotas = readFile(nomFile);
+        ArrayList<String> nombresMascotas = new ArrayList<String>();
+        for(Mascota m:mascotas){
+            nombresMascotas.add(m.nombre);
+        }
+        return nombresMascotas;
+    }
+    
     public static Mascota nextMascota(int idDuenio, TextField tfNombre, TextField tfTipo, TextField tfRaza, Date fechaNac){
         Mascota m = null;
         String nombre = tfNombre.getText();

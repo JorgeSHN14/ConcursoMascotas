@@ -12,9 +12,15 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Scanner;
 import javafx.scene.control.Alert;
 
 /**
@@ -31,12 +37,17 @@ public class Inscripcion {
     private ArrayList<Evaluacion> evaluaciones;
     private static int idInstancia = 0;
 
-    public Inscripcion(int idMascota, int idConcurso, double valor, double descuento, Date fechaInscripcion) {
+    public Inscripcion(int idMascota, int idConcurso, double valor) {
         this.id = ++idInstancia;
         this.idMascota = idMascota;
         this.idConcurso = idConcurso;
         this.valor = valor;
-        this.descuento = descuento;
+        BigDecimal bd = new BigDecimal(Math.random() * 11).setScale(2, RoundingMode.HALF_UP);
+        this.descuento = bd.doubleValue();
+        LocalDateTime ldt= LocalDateTime.now();
+        ZonedDateTime zdt = ldt.atZone(ZoneId.systemDefault());
+        Date fechaInscripcion = Date.from(zdt.toInstant());
+        
         this.fechaInscripcion = fechaInscripcion;
         this.evaluaciones = new ArrayList<>();
     }
@@ -163,41 +174,26 @@ public class Inscripcion {
         return listaInscripciones;
     }
     
-    public static Inscripcion nextInscripcion(Scanner sc){
-        ArrayList<Mascota> mascotas = Mascota.readFile("mascotas.txt");
-        ArrayList<Concurso> concursos = Concurso.readFile("concursos.txt");
-        if(mascotas.isEmpty() || concursos.isEmpty())
-            return null;
-        Mascota mascotaInsc;
-        Concurso concursoInsc;
-        String nombre;
-        int idMascota;
+    public static ArrayList<Integer> idInscripciones(String nomFile){
+        ArrayList<Inscripcion> inscripciones = readFile(nomFile);
+        ArrayList<Integer> idIncripciones = new ArrayList<>();
+        for(Inscripcion i:inscripciones){
+            idIncripciones.add(i.id);
+        }
+        return idIncripciones;
+    }
+    
+    public static Inscripcion buscarInscripcion(ArrayList<Inscripcion> inscripciones,Mascota m, Concurso c){
+        for(Inscripcion i:inscripciones){
+            if(m.getNombre().equals(m.getNombre()) && c.getNombre().equals(c.getNombre()))
+                return i;
+        }
+        return null;
+    }
+    
+    public static Inscripcion nextInscripcion(Mascota m, Concurso c){
         
-        System.out.println("Ingrese el nombre de la mascota para la Inscripción.");
-        do{
-            System.out.println("Ingrese el nombre de una mascota registrada:");
-            nombre = sc.next();
-            mascotaInsc = Mascota.buscarMascota(mascotas, nombre);
-        } while(mascotaInsc == null);
-        
-        System.out.println("Ingrese el nombre del concurso para la Inscripción.");
-        do{
-            System.out.println("Ingrese el nombre de un concurso registrado:");
-            nombre = sc.next();
-            concursoInsc = Concurso.buscarConcurso(concursos, nombre);
-        } while(mascotaInsc == null);
-        
-        System.out.println("Ingrese el descuento:");
-        Double descuento = sc.nextDouble();
-        
-        System.out.println("Ingrese el valor de la inscripción:");
-        Double valor = sc.nextDouble();
-        
-        System.out.println("Ingrese la fecha de inscripción en el formato de dd/mm/aaaa:");
-        String[] fechaInscStr = sc.next().split("/");
-        Date fechaInsc = new Date(Integer.parseInt(fechaInscStr[2])-1900, Integer.parseInt(fechaInscStr[1])-1, Integer.parseInt(fechaInscStr[0]));
-        
-        Inscripcion i = new Inscripcion(mascotaInsc.getId(),concursoInsc.getId(),valor,descuento,fechaInsc);
+        Inscripcion i = new Inscripcion(m.getId(),c.getId(),c.getCosto());
         return i;
     }
     
