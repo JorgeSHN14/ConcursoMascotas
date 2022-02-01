@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<GridPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.controller.AdminController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+   </rowConstraints>
+   <children>
+      <VBox alignment="CENTER" prefHeight="397.0" prefWidth="588.0" spacing="25.0">
+         <children>
+            <Label text="Administración" textFill="#6f00ff">
+               <font>
+                  <Font name="Algerian" size="48.0" />
+               </font>
+            </Label>
+            <Button mnemonicParsing="false" onMouseClicked="#irAConcurso" prefHeight="29.0" style="-fx-background-color: rgb(23,23,23);" text="Registrar concurso" textFill="WHITE" underline="true">
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#irAPremio" prefHeight="29.0" style="-fx-background-color: rgb(23,23,23);" text="Registrar premios" textFill="WHITE" underline="true">
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#irACriterio" prefHeight="29.0" style="-fx-background-color: rgb(23,23,23);" text="Rgistrar criterios" textFill="WHITE" underline="true">
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#irAMiembroJurado" prefHeight="29.0" style="-fx-background-color: rgb(23,23,23);" text="Registrar miembro del jurado" textFill="WHITE" underline="true">
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button mnemonicParsing="false" onMouseClicked="#irAEvaluacion" prefHeight="29.0" style="-fx-background-color: rgb(23,23,23);" text="Evaluar participante" textFill="WHITE" underline="true">
+               <font>
+                  <Font name="Times New Roman" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <HBox alignment="CENTER" prefHeight="66.0" prefWidth="588.0">
+               <children>
+                  <Button mnemonicParsing="false" onMouseClicked="#retroceder" prefHeight="29.0" style="-fx-background-color: rgb(23,23,23);" text="Menu" textFill="WHITE" underline="true">
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</GridPane>
